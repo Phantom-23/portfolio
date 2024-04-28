@@ -4,8 +4,7 @@ import { Link } from 'react-scroll';
 import BGG from '../../Assests/BGG.jpg';
 import { IoBag } from "react-icons/io5";
 
-import Skills from '../Skills/Skills.js';
-import Contact from '../Contact/Contact.js';
+
 const Intro = () => {
   return (
     <section id="intro">
