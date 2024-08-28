@@ -55,7 +55,7 @@
 .codingProfile{
     margin: 1.5rem;
     width: 100vw;
-    max-width: 85%;
+    max-width: 95%;
     text-align: left;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .badgeIcon:hover {
-    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+    transform: scale(3,3); /* Slightly enlarge the icon on hover */
 }
 
 .profileLink:hover {

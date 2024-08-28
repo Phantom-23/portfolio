@@ -36,10 +36,12 @@ const Navbar = () => {
 
           
             
-              <Jump className='destopMenuListItem' to="/resume" onClick={()=>viewResume(!Resume)} >Resume</Jump>
-          
+            <Jump className='destopMenuListItem' to="/resume" onClick={()=>viewResume(!Resume)} >Resume</Jump>
+            
 
             <Jump className='destopMenuListItem' to="/code" onClick={()=>setcode(!navcode)}>Coding</Jump>
+
+            <Jump className='destopMenuListItem' to="/projects">Projects</Jump>
             
 
 
@@ -66,7 +68,7 @@ const Navbar = () => {
 
 
         {/* mobilemenu */}
-        <span className='mobMenu' on onClick={()=>setMenu(!showMenu)}><TbMenuDeep size={56} /></span>
+        <span className='mobMenu'  onClick={()=>setMenu(!showMenu)}><TbMenuDeep size={56} /></span>
         <div className='navMenu' style={{display : showMenu?'flex':'none'}}>
             <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className='ListItem' onClick={()=>setMenu(false)}>Home</Link>
             <Link activeClass='active' to='skills' spy={true} smooth={true} offset={-100} duration={500}className='ListItem' >About</Link>
@@ -86,7 +88,9 @@ const Navbar = () => {
             <Jump className='ListItem' to="/code" >
                Coding
               </Jump>
-
+              <Jump className='ListItem' to="/projects" >
+               Projects
+              </Jump>
             <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={500}className='ListItem'>contact me</Link>
 
 

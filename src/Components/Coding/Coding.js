@@ -8,12 +8,13 @@ import codeforcesimg from '../../Assests/codeforcesimg.jpg';
 const Coding = () => {
   const [codeforcesData, setCodeforcesData] = useState(0);
   const [leetcodeBadges, setLeetcodeBadges] = useState([]);
+  const [leetcodeRating, setLeetcodeRating] = useState(0);
   const [activeBadge, setActiveBadge] = useState(null);
   const [upcomingBadges, setUpcomingBadges] = useState([]);
   const [codechefRating, setCodechefRating] = useState(0);
 
   useEffect(() => {
-    // Fetch the Codeforces data
+    // Fetch the Codeforces rating
     fetch('https://codeforces.com/api/user.info?handles=PHANTOM_23')
       .then(response => response.json())
       .then(data => {
@@ -21,7 +22,7 @@ const Coding = () => {
         setCodeforcesData(maxrr);
       })
       .catch(error => console.error("Error fetching Codeforces data:", error));
-
+      //fetch codechef
       fetch('https://codechef-api.vercel.app/handle/say_nine')
       .then(response => response.json())
       .then(data => {
@@ -38,6 +39,15 @@ const Coding = () => {
         setUpcomingBadges(data.upcomingBadges);
       })
       .catch(error => console.error("Error fetching LeetCode badges:", error));
+      // Fetch the leetcode rating
+      fetch('https://alfa-leetcode-api.onrender.com/userContestRankingInfo/say_nine')
+      .then(response => response.json())
+      .then(data => {
+        const maxrr = data.data.userContestRanking.rating;
+        setLeetcodeRating(Math.ceil(maxrr));
+      })
+      .catch(error => console.error("Error fetching LeetCode rating:", error));
+
   }, []);
 
   // Function to handle the image URL prefix
@@ -62,7 +72,6 @@ const Coding = () => {
               <p>I have maintained a Codeforces streak of 600 days.</p>
               <p>I am a specialist in Codeforces.</p>
               <p>Participated in more than 48 contests.</p>
-              
               <p>My Highest Codeforces rating is {codeforcesData}.</p>
               <p className='profileLinkTxt'>
                 my Codeforces ID: <Link to="https://codeforces.com/profile/PHANTOM_23" className='profileLink'>Phantom_23</Link>
@@ -117,6 +126,7 @@ const Coding = () => {
                   ))}
                 </div>
               )}
+              <p>I hold a {leetcodeRating} rating on LeetCode.</p>
               <p className='profileLinkTxt'>
                 my LeetCode ID: <Link to="https://leetcode.com/say_nine/" className='profileLink'>say_nine</Link>
               </p>
