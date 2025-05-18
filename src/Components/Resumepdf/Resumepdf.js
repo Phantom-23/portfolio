@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Resume from '../../Assests/resume.pdf';
+import Resume from '../../Assests/RAHULtemplateresume1.pdf';
 
 const Resumepdf = () => {
     
